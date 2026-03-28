@@ -1,0 +1,13 @@
+[Unit]
+Description=Vigil file watcher
+After=local-fs.target
+
+[Service]
+Type=notify
+ExecStart=/usr/local/bin/vigil
+Restart=on-failure
+WatchdogSec=15
+Environment=VIGIL_MONITOR_ROOT=/path/to/watch
+
+[Install]
+WantedBy=multi-user.target

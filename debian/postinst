@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+echo ""
+echo "⚠️  vigil: before starting the service, set your watch path:"
+echo "    sudo systemctl edit vigil"
+echo ""
+echo "Add the following, with your path:"
+echo ""
+echo "    [Service]"
+echo "    Environment=VIGIL_MONITOR_ROOT=<YOUR PATH HERE>"
+echo ""

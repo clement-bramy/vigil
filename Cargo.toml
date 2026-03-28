@@ -1,0 +1,30 @@
+[package]
+name = "vigil"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Simple file watcher for linux"
+
+[dependencies]
+color-eyre = "0.6.5"
+notify = "8.2.0"
+sd-notify = "0.5.0"
+tokio = { version = "1.50.0", features = ["macros", "rt-multi-thread", "signal", "sync", "time"] }
+tracing = "0.1.44"
+tracing-journald = "0.3.2"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+
+[package.metadata.deb]
+maintainer = "Clement"
+section = "utility"
+priority = "optional"
+depends = "$auto"
+assets = [
+    ["target/release/vigil", "usr/local/bin/vigil", "755"],
+]
+maintainer-scripts = "debian/"
+
+[package.metadata.deb.systemd-units]
+unit-scripts = "debian/"
+enable = false
+start = false
